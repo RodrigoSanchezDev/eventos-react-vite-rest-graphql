@@ -1,10 +1,19 @@
 // GraphQL API usando MSW (Mock Service Worker)
-// Las peticiones GraphQL son interceptadas por MSW
+// En desarrollo: MSW intercepta las peticiones
+// En producción: Usa datos estáticos del JSON
+
+import eventsData from '../data/events.json';
 
 const GRAPHQL_ENDPOINT = '/graphql';
+const IS_PRODUCTION = import.meta.env.PROD;
 
 // Helper para hacer queries GraphQL
 async function graphqlRequest(query, variables = {}) {
+  // En producción, simular respuestas GraphQL con datos estáticos
+  if (IS_PRODUCTION) {
+    return handleProductionQuery(query, variables);
+  }
+  
   const response = await fetch(GRAPHQL_ENDPOINT, {
     method: 'POST',
     headers: {
@@ -17,6 +26,44 @@ async function graphqlRequest(query, variables = {}) {
   });
   
   return response.json();
+}
+
+// Manejador de queries en producción
+function handleProductionQuery(query, variables) {
+  if (query.includes('GetEventDetails')) {
+    const event = eventsData.events.find(e => e.id === parseInt(variables.id));
+    return { data: { event: event || null } };
+  }
+  
+  if (query.includes('SearchByOrganizer')) {
+    const results = eventsData.events.filter(e => 
+      e.organizer?.name?.toLowerCase().includes(variables.organizer.toLowerCase())
+    );
+    return { data: { events: results } };
+  }
+  
+  if (query.includes('GetAttendees')) {
+    const event = eventsData.events.find(e => e.id === parseInt(variables.eventId));
+    return {
+      data: {
+        attendees: {
+          total: event ? event.confirmedAttendees : 0,
+          availableSeats: event ? event.availableSeats : 0,
+          eventId: variables.eventId
+        }
+      }
+    };
+  }
+  
+  if (query.includes('GetUpcomingEvents')) {
+    const today = new Date();
+    const upcoming = eventsData.events
+      .filter(e => new Date(e.date) >= today)
+      .slice(0, 5);
+    return { data: { upcomingEvents: upcoming } };
+  }
+  
+  return { data: null };
 }
 
 // Queries predefinidos
