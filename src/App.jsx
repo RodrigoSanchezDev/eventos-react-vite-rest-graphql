@@ -13,8 +13,10 @@ import Checkout from './pages/Checkout';
 import OrderSuccess from './pages/OrderSuccess';
 
 function App() {
+  const basename = import.meta.env.PROD ? '/eventos-react-vite-rest-graphql' : '/';
+  
   return (
-    <Router basename="/eventos-react-vite-rest-graphql">
+    <Router basename={basename}>
       <CartProvider>
         <div className="flex flex-col min-h-screen">
           <Navbar />
