@@ -1,0 +1,98 @@
+[
+  {
+    "id": "1",
+    "title": "Tech Summit 2025",
+    "date": "2025-12-15",
+    "time": "09:00",
+    "location": "Centro de Convenciones MetropolitanoSantiago, Chile",
+    "category": "Conferencia",
+    "image": "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&q=80",
+    "price": 45000,
+    "availableSeats": 150,
+    "description": "La conferencia tecnológica más importante del año."
+  },
+  {
+    "id": "2",
+    "title": "Concierto Sinfónico de Invierno",
+    "date": "2025-12-20",
+    "time": "20:00",
+    "location": "Teatro Municipal",
+    "category": "Concierto",
+    "image": "https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?w=800&q=80",
+    "price": 35000,
+    "availableSeats": 80,
+    "description": "Una velada mágica con la Orquesta Sinfónica Nacional."
+  },
+  {
+    "id": "3",
+    "title": "Feria Gastronómica Internacional",
+    "date": "2025-12-10",
+    "time": "12:00",
+    "location": "Parque Bicentenario",
+    "category": "Festival",
+    "image": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=800&q=80",
+    "price": 15000,
+    "availableSeats": 500,
+    "description": "Más de 50 restaurantes presentando lo mejor de la cocina mundial."
+  },
+  {
+    "id": "4",
+    "title": "Workshop: Desarrollo Full Stack",
+    "date": "2025-12-08",
+    "time": "14:00",
+    "location": "Campus Tecnológico",
+    "category": "Taller",
+    "image": "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&q=80",
+    "price": 55000,
+    "availableSeats": 30,
+    "description": "Aprende las últimas tecnologías en desarrollo web."
+  },
+  {
+    "id": "5",
+    "title": "Exposición de Arte Contemporáneo",
+    "date": "2025-12-12",
+    "time": "10:00",
+    "location": "Museo de Arte Moderno",
+    "category": "Exposición",
+    "image": "https://images.unsplash.com/photo-1564399579883-451a5d44ec08?w=800&q=80",
+    "price": 8000,
+    "availableSeats": 200,
+    "description": "Una colección única de artistas emergentes latinoamericanos."
+  },
+  {
+    "id": "6",
+    "title": "Maratón Ciudad 2025",
+    "date": "2025-12-05",
+    "time": "07:00",
+    "location": "Plaza de la Constitución",
+    "category": "Deportivo",
+    "image": "https://images.unsplash.com/photo-1452626038306-9aae5e071dd3?w=800&q=80",
+    "price": 25000,
+    "availableSeats": 1000,
+    "description": "42K recorriendo los lugares más emblemáticos de la ciudad."
+  },
+  {
+    "id": "7",
+    "title": "Networking Empresarial",
+    "date": "2025-12-18",
+    "time": "18:00",
+    "location": "Hotel Grand Plaza",
+    "category": "Networking",
+    "image": "https://images.unsplash.com/photo-1511578314322-379afb476865?w=800&q=80",
+    "price": 40000,
+    "availableSeats": 100,
+    "description": "Conecta con líderes empresariales y emprendedores exitosos."
+  },
+  {
+    "id": "8",
+    "title": "Festival de Cine Independiente",
+    "date": "2025-12-22",
+    "time": "16:00",
+    "location": "Cine Arte Alameda",
+    "category": "Festival",
+    "image": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=800&q=80",
+    "price": 12000,
+    "availableSeats": 120,
+    "description": "Proyección de las mejores producciones cinematográficas independientes."
+  }
+]
