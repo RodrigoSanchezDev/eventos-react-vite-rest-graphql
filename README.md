@@ -24,6 +24,7 @@
 - [Tecnologías](#-stack-tecnológico)
 - [Arquitectura](#-arquitectura-del-proyecto)
 - [Instalación](#-instalación-rápida)
+- [Arquitectura Técnica](#-arquitectura-técnica)
 - [Uso](#-uso)
 - [API Documentation](#-documentación-de-apis)
 - [Componentes](#-componentes-principales)
@@ -210,6 +211,63 @@ npm run lint     # Ejecutar ESLint
 
 ---
 
+## 🏗️ Arquitectura Técnica
+
+### ✅ React Router - Navegación SPA
+
+**Configuración completa de enrutamiento** con React Router DOM 6.x para navegación fluida sin recargas:
+
+**📋 Implementación:**
+- ✅ **8 rutas** configuradas en `App.jsx` con componente `<Routes>` y `<Route>`
+- ✅ **Navegación sin errores**: Uso correcto de `<Link>` y `useNavigate` para navegación programática
+- ✅ **Rutas dinámicas**: `/eventos/:id` con parámetros URL usando `useParams`
+- ✅ **basename configurado**: Soporte para GitHub Pages con subfolder routing
+- ✅ **Layout persistente**: Navbar y Footer se mantienen en todas las vistas
+
+**📍 Código:** `src/App.jsx` - `<BrowserRouter>` con todas las rutas
+
+---
+
+### ✅ Componentes Reutilizables - Arquitectura Modular
+
+**Código organizado en componentes** con separación clara de responsabilidades:
+
+**📋 Estructura modular:**
+- ✅ **Componentes UI**: `LoadingSpinner`, `ErrorMessage`, `EmptyState` (reutilizables en todo el proyecto)
+- ✅ **Componentes de Layout**: `Navbar`, `Footer` (compartidos entre todas las páginas)
+- ✅ **Componentes de Negocio**: `EventCard`, `FloatingCart` (lógica específica encapsulada)
+- ✅ **Páginas**: 8 páginas independientes en `src/pages/`
+- ✅ **Props bien definidas**: Cada componente recibe props tipadas y documentadas
+
+**📍 Estructura:**
+```
+src/components/
+  ├── ui/           → Componentes reutilizables genéricos
+  ├── layout/       → Componentes de estructura común
+  ├── events/       → Componentes específicos de eventos
+  └── cart/         → Componentes del sistema de carrito
+```
+
+---
+
+### ✅ Manejo de Estado - Hooks de React
+
+**Gestión de estado reactivo** con hooks nativos para actualización fluida de la UI:
+
+**📋 Implementación:**
+- ✅ **useState**: Manejo de estado local en todos los componentes (loading, error, data)
+- ✅ **useEffect**: Carga de datos al montar componentes y sincronización con APIs
+- ✅ **Context API**: Estado global del carrito con `CartContext` (compartido entre componentes)
+- ✅ **Custom Hooks**: `useCart()` para acceder al contexto del carrito
+- ✅ **localStorage**: Persistencia del carrito entre sesiones
+
+**📍 Ejemplos clave:**
+- `src/pages/Home.jsx` - useEffect para cargar eventos y stats
+- `src/context/CartContext.jsx` - Context + useState para carrito global
+- `src/pages/EventDetail.jsx` - useState para cantidad, useParams para ID
+
+---
+
 ## 💻 Uso
 
 ### Navegación Principal
@@ -255,6 +313,29 @@ npm run lint     # Ejecutar ESLint
 
 ## 📡 Documentación de APIs
 
+### ✅ Implementación de API REST Mock
+
+El proyecto implementa una **API REST mock completa** que simula un servidor real utilizando **Mock Service Worker (MSW)**:
+
+**📋 Características principales:**
+- ✅ **7 endpoints REST** operativos (GET, POST) para operaciones CRUD
+- ✅ **Datos dinámicos** cargados desde `src/data/events.json`
+- ✅ **Respuestas realistas** con delays de red (200-500ms) y códigos HTTP (200, 201, 404)
+- ✅ **Modo dual**: MSW en desarrollo, datos estáticos en producción (GitHub Pages)
+- ✅ **Sin errores**: Interfaz consume la API sin errores de carga
+
+**🔧 Arquitectura:**
+```
+Componente → restApi.js (cliente) → MSW intercepta → handlers.js (mock server) → JSON data
+```
+
+**📍 Ubicación del código:**
+- `src/services/restApi.js` - Cliente HTTP con fetch()
+- `src/mocks/handlers.js` - Handlers MSW para desarrollo
+- `src/data/events.json` - Fuente de datos
+
+---
+
 ### REST API con MSW
 
 **MSW (Mock Service Worker)** intercepta peticiones HTTP reales a `/api/*`
@@ -297,6 +378,28 @@ await fetch('/api/stats')
 - ✅ Peticiones fetch reales interceptadas
 - ✅ Solo activo en desarrollo
 - ✅ Logs en consola del navegador
+
+---
+
+### ✅ Implementación de API GraphQL Mock
+
+El proyecto implementa **consultas GraphQL mock** para obtener información detallada y específica de eventos:
+
+**📋 Características principales:**
+- ✅ **4 queries GraphQL** operativas para consultas avanzadas
+- ✅ **Consultas flexibles**: Solo solicita los campos necesarios (evita over-fetching)
+- ✅ **Información detallada**: Detalles completos de eventos, asistentes, organizadores
+- ✅ **Sin errores**: Cliente GraphQL funciona correctamente en desarrollo y producción
+- ✅ **Modo dual**: MSW en desarrollo, fallback a datos estáticos en producción
+
+**🔧 Ventaja sobre REST:**
+GraphQL permite solicitar exactamente los datos necesarios en una sola petición, evitando múltiples llamadas REST.
+
+**📍 Ubicación del código:**
+- `src/services/graphqlApi.js` - Cliente GraphQL con queries predefinidos
+- `src/mocks/handlers.js` - Handlers GraphQL para desarrollo
+
+---
 
 ### GraphQL API con MSW
 
