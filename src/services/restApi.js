@@ -13,8 +13,8 @@ export const restApi = {
     if (IS_PRODUCTION) {
       return {
         success: true,
-        data: eventsData.events,
-        count: eventsData.events.length
+        data: eventsData,
+        count: eventsData.length
       };
     }
     const response = await fetch(`${API_BASE_URL}/events`);
@@ -24,7 +24,7 @@ export const restApi = {
   // GET: Obtener evento por ID
   async getEventById(id) {
     if (IS_PRODUCTION) {
-      const event = eventsData.events.find(e => e.id === parseInt(id));
+      const event = eventsData.find(e => e.id === id || e.id === parseInt(id));
       return event 
         ? { success: true, data: event }
         : { success: false, message: 'Evento no encontrado' };
@@ -36,7 +36,7 @@ export const restApi = {
   // GET: Filtrar eventos por categoría
   async getEventsByCategory(category) {
     if (IS_PRODUCTION) {
-      const filtered = eventsData.events.filter(e => e.category === category);
+      const filtered = eventsData.filter(e => e.category === category);
       return {
         success: true,
         data: filtered,
@@ -51,7 +51,7 @@ export const restApi = {
   async searchEvents(query) {
     if (IS_PRODUCTION) {
       const lowerQuery = query.toLowerCase();
-      const results = eventsData.events.filter(event =>
+      const results = eventsData.filter(event =>
         event.title.toLowerCase().includes(lowerQuery) ||
         event.description.toLowerCase().includes(lowerQuery) ||
         event.location.toLowerCase().includes(lowerQuery) ||
@@ -72,7 +72,7 @@ export const restApi = {
     if (IS_PRODUCTION) {
       const newEvent = {
         ...eventData,
-        id: eventsData.events.length + 1
+        id: (eventsData.length + 1).toString()
       };
       return {
         success: true,
@@ -93,7 +93,7 @@ export const restApi = {
   // GET: Obtener categorías únicas
   async getCategories() {
     if (IS_PRODUCTION) {
-      const categories = [...new Set(eventsData.events.map(e => e.category))];
+      const categories = [...new Set(eventsData.map(e => e.category))];
       return {
         success: true,
         data: categories,
@@ -117,7 +117,7 @@ export const restApi = {
   // GET: Estadísticas generales
   async getStats() {
     if (IS_PRODUCTION) {
-      const events = eventsData.events;
+      const events = eventsData;
       const categories = [...new Set(events.map(e => e.category))];
       const totalSeats = events.reduce((sum, e) => sum + e.availableSeats, 0);
       const averagePrice = events.reduce((sum, e) => sum + e.price, 0) / events.length;

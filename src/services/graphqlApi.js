@@ -31,19 +31,19 @@ async function graphqlRequest(query, variables = {}) {
 // Manejador de queries en producción
 function handleProductionQuery(query, variables) {
   if (query.includes('GetEventDetails')) {
-    const event = eventsData.events.find(e => e.id === parseInt(variables.id));
+    const event = eventsData.find(e => e.id === variables.id || e.id === parseInt(variables.id));
     return { data: { event: event || null } };
   }
   
   if (query.includes('SearchByOrganizer')) {
-    const results = eventsData.events.filter(e => 
+    const results = eventsData.filter(e => 
       e.organizer?.name?.toLowerCase().includes(variables.organizer.toLowerCase())
     );
     return { data: { events: results } };
   }
   
   if (query.includes('GetAttendees')) {
-    const event = eventsData.events.find(e => e.id === parseInt(variables.eventId));
+    const event = eventsData.find(e => e.id === variables.eventId || e.id === parseInt(variables.eventId));
     return {
       data: {
         attendees: {
@@ -57,7 +57,7 @@ function handleProductionQuery(query, variables) {
   
   if (query.includes('GetUpcomingEvents')) {
     const today = new Date();
-    const upcoming = eventsData.events
+    const upcoming = eventsData
       .filter(e => new Date(e.date) >= today)
       .slice(0, 5);
     return { data: { upcomingEvents: upcoming } };
