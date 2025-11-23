@@ -14,7 +14,7 @@ import OrderSuccess from './pages/OrderSuccess';
 
 function App() {
   return (
-    <Router>
+    <Router basename="/eventos-react-vite-rest-graphql">
       <CartProvider>
         <div className="flex flex-col min-h-screen">
           <Navbar />
