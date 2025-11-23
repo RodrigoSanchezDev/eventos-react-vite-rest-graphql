@@ -12,7 +12,7 @@
 
 **EventHub** es una plataforma web de última generación diseñada para revolucionar la forma en que las personas descubren, exploran y crean eventos. Con una arquitectura moderna y una interfaz intuitiva, conecta organizadores con audiencias de manera eficiente y profesional.
 
-[Ver Demo](#) · [Reportar Bug](#) · [Solicitar Feature](#)
+[🚀 Ver Demo en Vivo](https://rodrigosanchezdev.github.io/eventos-react-vite-rest-graphql/) · [Reportar Bug](https://github.com/RodrigoSanchezDev/eventos-react-vite-rest-graphql/issues) · [Solicitar Feature](https://github.com/RodrigoSanchezDev/eventos-react-vite-rest-graphql/issues)
 
 </div>
 
