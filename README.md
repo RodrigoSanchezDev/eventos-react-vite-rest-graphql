@@ -27,6 +27,7 @@
 - [Uso](#-uso)
 - [API Documentation](#-documentación-de-apis)
 - [Componentes](#-componentes-principales)
+- [Testing](#-testing-de-compatibilidad)
 - [Roadmap](#-roadmap)
 - [Contribución](#-contribución)
 - [Licencia](#-licencia)
@@ -440,6 +441,65 @@ Indicador de carga animado y personalizable.
 
 ---
 
+## 🧪 Testing de Compatibilidad
+
+EventHub ha sido exhaustivamente probado en múltiples navegadores para garantizar una experiencia consistente en todos los dispositivos.
+
+<table>
+<tr>
+<th>Navegador</th>
+<th>Desktop</th>
+<th>Mobile</th>
+</tr>
+
+<tr>
+<td>
+<img src="https://img.shields.io/badge/Google%20Chrome-4285F4?style=for-the-badge&logo=google-chrome&logoColor=white" alt="Chrome"/>
+</td>
+<td>
+<img src="./src/assets/chrome-desktop.png" alt="Chrome Desktop" width="400"/>
+</td>
+<td>
+<img src="./src/assets/chrome-mobile.png" alt="Chrome Mobile" width="200"/>
+</td>
+</tr>
+
+<tr>
+<td>
+<img src="https://img.shields.io/badge/Safari-000000?style=for-the-badge&logo=safari&logoColor=white" alt="Safari"/>
+</td>
+<td>
+<img src="./src/assets/safari-desktop.png" alt="Safari Desktop" width="400"/>
+</td>
+<td>
+<img src="./src/assets/safari-mobile.png" alt="Safari Mobile" width="200"/>
+</td>
+</tr>
+
+<tr>
+<td>
+<img src="https://img.shields.io/badge/Atlas_(ChatGPT)-10A37F?style=for-the-badge&logo=openai&logoColor=white" alt="Atlas"/>
+</td>
+<td>
+<img src="./src/assets/atlas-desktop.png" alt="Atlas Desktop" width="400"/>
+</td>
+<td>
+<img src="./src/assets/atlas-mobile.png" alt="Atlas Mobile" width="200"/>
+</td>
+</tr>
+
+</table>
+
+### ✅ Navegadores Soportados
+
+- **Chrome** 90+ (Desktop & Mobile)
+- **Safari** 14+ (Desktop & Mobile)
+- **Atlas** (ChatGPT Browser)
+- **Firefox** 88+ (Desktop & Mobile)
+- **Edge** 90+ (Desktop & Mobile)
+
+---
+
 ## 🗺 Roadmap
 
 ### Versión 2.0 (Q1 2026)
@@ -490,7 +550,7 @@ Las contribuciones son bienvenidas y apreciadas. Para contribuir:
 Este proyecto está licenciado bajo la **Licencia MIT**. Consulta el archivo [LICENSE](LICENSE) para más detalles.
 
 ```
-MIT License - Copyright (c) 2025 Rodrigo Sánchez
+MIT License - Copyright (c) 2025 Rodrigo Sanchez
 ```
 
 ---
@@ -499,16 +559,16 @@ MIT License - Copyright (c) 2025 Rodrigo Sánchez
 
 <div align="center">
 
-### **Rodrigo Sánchez**
+### **Rodrigo Sanchez**
 
 *Full Stack Developer & UX/UI Designer*
 
 Especializado en crear experiencias web excepcionales con tecnologías modernas y diseño centrado en el usuario.
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/rodrigo-sanchez)
-[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/rodrigo-sanchez)
-[![Portfolio](https://img.shields.io/badge/Portfolio-FF5722?style=for-the-badge&logo=google-chrome&logoColor=white)](https://rodrigosanchez.dev)
-[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:contacto@rodrigosanchez.dev)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/sanchezdev/)
+[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/RodrigoSanchezDev/)
+[![Portfolio](https://img.shields.io/badge/Portfolio-FF5722?style=for-the-badge&logo=google-chrome&logoColor=white)](https://sanchezdev.com/)
+[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:rodrigo@sanchezdev.com)
 
 </div>
 
