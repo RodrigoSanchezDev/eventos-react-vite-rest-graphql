@@ -7,29 +7,8 @@ import eventsData from '../data/events.json';
 const GRAPHQL_ENDPOINT = '/graphql';
 const IS_PRODUCTION = import.meta.env.PROD;
 
-// Helper para hacer queries GraphQL
-async function graphqlRequest(query, variables = {}) {
-  // En producción, simular respuestas GraphQL con datos estáticos
-  if (IS_PRODUCTION) {
-    return handleProductionQuery(query, variables);
-  }
-  
-  const response = await fetch(GRAPHQL_ENDPOINT, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-      query,
-      variables
-    })
-  });
-  
-  return response.json();
-}
-
-// Manejador de queries en producción
-function handleProductionQuery(query, variables) {
+// Manejador de queries en producción (exportado para testing)
+export function handleProductionQuery(query, variables) {
   if (query.includes('GetEventDetails')) {
     const event = eventsData.find(e => e.id === variables.id || e.id === parseInt(variables.id));
     return { data: { event: event || null } };
@@ -64,6 +43,27 @@ function handleProductionQuery(query, variables) {
   }
   
   return { data: null };
+}
+
+// Helper para hacer queries GraphQL
+async function graphqlRequest(query, variables = {}) {
+  // En producción, simular respuestas GraphQL con datos estáticos
+  if (IS_PRODUCTION) {
+    return handleProductionQuery(query, variables);
+  }
+  
+  const response = await fetch(GRAPHQL_ENDPOINT, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      query,
+      variables
+    })
+  });
+  
+  return response.json();
 }
 
 // Queries predefinidos
